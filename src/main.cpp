@@ -8,7 +8,7 @@
 #define STEP_PIN 2
 #define DIR_PIN 3
 #define BUZZ_PIN A1
-#define MAX_TEMP 230
+#define MAX_TEMP 250
 
 #include <EncButton.h>
 EncButton encBut(7, 6, 5, INPUT, INPUT);  //s1, s2, key
