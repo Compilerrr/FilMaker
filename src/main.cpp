@@ -306,7 +306,6 @@ void loop() {
 
   if(encBut.click()){
     Serial.println("clicked");
-    highlightFila = false;
     motorOn = !motorOn;
     showMotor();
     if(motorOn){
@@ -373,8 +372,10 @@ void loop() {
   }
 
 
-  if(haveFila==false && prevHaveFila==true){
-    buzz(300);
+  if(haveFila==false && prevHaveFila==true && motorOn){
+    buzz(700);
+    delay(100);
+    buzz(700);
     motorOn = false;
     showMotor();
     highlightFila = true;
