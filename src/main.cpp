@@ -370,9 +370,16 @@ void loop() {
 
   if(haveFila==false && prevHaveFila==true){
     buzz(300);
+    motorOn = false;
+    showMotor();
+
   }
   prevHaveFila = haveFila;
-
-  
+  if(!haveFila){
+    lcd.noBacklight();
+    delay(500);
+    lcd.backlight();
+    delay(500);
+  }
 }
 
