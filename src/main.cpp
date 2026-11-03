@@ -292,6 +292,9 @@ void loop() {
   buzzTick(mil);
 
   haveFila = !digitalRead(FILA_PIN);
+  if(haveFila && highlightFila){
+    highlightFila = false;
+  }
 
   if(showTempAt>0 && mil>showTempAt){
     menuState = DISPLAY_TEMP;
