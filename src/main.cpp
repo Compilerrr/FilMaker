@@ -118,6 +118,7 @@ double curPower = 0;
 
 bool haveFila = false;
 bool prevHaveFila = false;
+bool highlightFila = false;
 
 unsigned long buzzUntil = 0;
 int buzzV = 200;
@@ -302,6 +303,7 @@ void loop() {
 
   if(encBut.click()){
     Serial.println("clicked");
+    highlightFila = false;
     motorOn = !motorOn;
     showMotor();
     if(motorOn){
@@ -372,10 +374,11 @@ void loop() {
     buzz(300);
     motorOn = false;
     showMotor();
-
+    highlightFila = true;
   }
   prevHaveFila = haveFila;
-  if(!haveFila){
+
+  if(highlightFila){
     lcd.noBacklight();
     delay(500);
     lcd.backlight();
